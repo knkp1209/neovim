@@ -11,7 +11,7 @@ local autocmd = vim.api.nvim_create_autocmd
 opt.foldmethod = "expr"
 opt.foldexpr = "nvim_treesitter#foldexpr()"
 opt.foldenable = false
-opt.scrolloff = 30
+opt.scrolloff = 5
 opt.sidescroll=10
 
 opt.wrap = true
@@ -19,6 +19,14 @@ opt.cursorline = true
 opt.showcmd = true
 opt.wildmenu = true
 
+
+-- 自动删除行尾空格
+autocmd("BufWritePre", {
+    pattern = "*",
+    callback = function()
+        vim.cmd [[%s/\s\+$//e]]
+    end
+})
 
 autocmd("BufWritePre", {
   pattern = "*.go",
