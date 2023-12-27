@@ -71,5 +71,14 @@ M.nvimtree = {
   },
 }
 
+M.telescope = {
+  pickers = {
+    find_files = {
+      -- 设置 Telescope 默认在当前目录搜索
+      cwd = vim.fn.expand "%:p:h",
+    },
+  },
+}
+
 
 return M

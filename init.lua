@@ -90,3 +90,6 @@ vim.g.vscode_snippets_path = "/Users/yangwenhang/.config/nvim/lua/custom/snippet
 --
 
 -- local actions = require("telescope.actions")
+
+-- tmux
+vim.g.tmux_navigator_no_mappings = 1

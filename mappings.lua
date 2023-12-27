@@ -33,7 +33,7 @@ M.general = {
       "Show code struct",
     },
     -- git
-    ["<leader>gsq"] = {
+    ["<leader>gq"] = {
       ":Gitsigns setqflist <CR>",
       opts = { nowait = true },
     },
@@ -59,10 +59,22 @@ M.general = {
       end,
       "open session",
     },
-    ["<leader>gg"] = {
+    ["<leader>lg"] = {
       "<cmd>:LazyGit<cr>",
       "open session",
     },
+    ["<leader>gg"] = {
+      "<cmd>:Telescope git_status<cr>",
+      "open session",
+    },
+
+    -- tmux 配置
+    ["<C-h>"] = { ":TmuxNavigateLeft<CR>", opts = { silent = true } },
+    ["<C-j>"] = { ":TmuxNavigateDown<CR>", opts = { silent = true } },
+    ["<C-k>"] = { ":TmuxNavigateUp<CR>", opts = { silent = true } },
+    ["<C-l>"] = { ":TmuxNavigateRight<CR>", opts = { silent = true } },
+    -- ["<Previous-Mapping>"] = { ":TmuxNavigatePrevious<CR>", opts = { silent = true } },
+
     -- ["<LEADER>y"] = {
     --   "<cmd>y+",
     --   "Copy",
@@ -73,6 +85,12 @@ M.general = {
   },
   v = {
     [">"] = { ">gv", "indent" },
+  },
+  t = {
+    ["<leader>\\"] = {
+      "<C-\\><C-n>",
+      opts = { noremap = true, silent = true },
+    },
   },
 }
 

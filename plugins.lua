@@ -154,6 +154,19 @@ local plugins = {
     end,
     ft = { "markdown" },
   },
+  {
+    "willothy/flatten.nvim",
+    config = true,
+    -- or pass configuration with
+    -- opts = {  }
+    -- Ensure that it runs first to minimize delay when opening file from terminal
+    lazy = false,
+    priority = 1001,
+  },
+  {
+    lazy = false, -- 后续优化成判断启动
+    "christoomey/vim-tmux-navigator"
+  }
   -- To make a plugin not be loaded
   -- {
   --   "NvChad/nvim-colorizer.lua",
