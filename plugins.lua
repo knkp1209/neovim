@@ -155,6 +155,16 @@ local plugins = {
     ft = { "markdown" },
   },
   {
+    "knkp1209/nvim-git",
+    config = function()
+      vim.api.nvim_create_user_command("ShowGitBlame", require("nvim-git").show_blame, {})
+      vim.api.nvim_create_user_command("HideGitBlame", require("nvim-git").hide_blame, {})
+      vim.keymap.set("n", "<Leader>gb", "<Cmd>ShowLineAuthors<CR>", { silent = true, noremap = true })
+      -- vim.keymap.set("n", "<Leader>gbc", "<Cmd>HideLineAuthors<CR>", { silent = true, noremap = true })
+    end,
+    lazy = false,
+  },
+  {
     "willothy/flatten.nvim",
     config = true,
     -- or pass configuration with
