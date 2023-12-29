@@ -37,6 +37,11 @@ local plugins = {
     "nvim-tree/nvim-tree.lua",
     opts = overrides.nvimtree,
   },
+  {
+    "lewis6991/gitsigns.nvim",
+    opts = require "custom.configs.gitsigns",
+  },
+
 
   -- Install a plugin
   {

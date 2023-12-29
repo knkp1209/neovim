@@ -93,3 +93,11 @@ vim.g.vscode_snippets_path = "/Users/yangwenhang/.config/nvim/lua/custom/snippet
 
 -- tmux
 vim.g.tmux_navigator_no_mappings = 1
+
+-- gitsigns
+-- 函数用于设置 highlight 组的颜色
+local function set_highlight(group, guifg, guibg, ctermfg, ctermbg)
+    vim.cmd(string.format('highlight %s guifg=%s guibg=%s ctermfg=%s ctermbg=%s', group, guifg, guibg, ctermfg, ctermbg))
+end
+-- 设置 GitSigns 插件颜色
+set_highlight('GitSignsChange', '#38E8FF', 'NONE', 'NONE', 'NONE')
