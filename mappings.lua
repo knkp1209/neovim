@@ -59,6 +59,10 @@ M.general = {
       end,
       "open session",
     },
+    ["<leader>qq"] = {
+      "<cmd>:qa<cr>",
+      "退出程序",
+    },
     ["<leader>lg"] = {
       "<cmd>:LazyGit<cr>",
       "open session",
