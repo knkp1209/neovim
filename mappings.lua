@@ -59,10 +59,10 @@ M.general = {
       end,
       "open session",
     },
-    ["<leader>qq"] = {
-      "<cmd>:qa<cr>",
-      "退出程序",
-    },
+    -- ["<leader>qq"] = {
+    --   "<cmd>:qa<cr>",
+    --   "退出程序",
+    -- },
     ["<leader>lg"] = {
       "<cmd>:LazyGit<cr>",
       "open session",
@@ -102,8 +102,8 @@ M.nvimtree = {
   plugin = true,
 
   n = {
-    -- toggle
-    ["<LEADER>m"] = { "<cmd> NvimTreeToggle <CR>", "Toggle nvimtree", opts = { nowait = true } },
+    -- focus
+    ["<leader>e"] = { "<cmd> NvimTreeToggle <CR>", "Focus nvimtree" },
   },
 }
 
@@ -138,6 +138,10 @@ M.dap = {
       end,
       "Open debugging sidebar",
     },
+
+    -- Telescope frecency
+    ["<leader>ff"] = { "<cmd> Telescope frecency workspace=CWD <CR>", "Find files" },
+
   },
 }
 
