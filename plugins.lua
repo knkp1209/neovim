@@ -42,7 +42,6 @@ local plugins = {
     opts = require "custom.configs.gitsigns",
   },
 
-
   -- Install a plugin
   {
     "max397574/better-escape.nvim",
@@ -98,10 +97,10 @@ local plugins = {
   {
     "rcarriga/nvim-dap-ui",
     requires = { "mfussenegger/nvim-dap" },
-  -- stylua: ignore
+    -- stylua: ignore
     keys = {
-      { "<leader>du", function() require("dapui").toggle({ }) end, desc = "Dap UI" },
-      { "<leader>de", function() require("dapui").eval() end, desc = "Eval", mode = {"n", "v"} },
+      { "<leader>du", function() require("dapui").toggle({}) end, desc = "Dap UI" },
+      { "<leader>de", function() require("dapui").eval() end,     desc = "Eval",  mode = { "n", "v" } },
     },
     opts = {},
     config = function(_, opts)
@@ -143,11 +142,11 @@ local plugins = {
     opts = {},
     -- stylua: ignore
     keys = {
-      { "s", mode = { "n", "x", "o" }, function() require("flash").jump() end, desc = "Flash" },
-      { "S", mode = { "n", "x", "o" }, function() require("flash").treesitter() end, desc = "Flash Treesitter" },
-      { "r", mode = "o", function() require("flash").remote() end, desc = "Remote Flash" },
-      { "R", mode = { "o", "x" }, function() require("flash").treesitter_search() end, desc = "Treesitter Search" },
-      { "<c-s>", mode = { "c" }, function() require("flash").toggle() end, desc = "Toggle Flash Search" },
+      { "s",     mode = { "n", "x", "o" }, function() require("flash").jump() end,              desc = "Flash" },
+      { "S",     mode = { "n", "x", "o" }, function() require("flash").treesitter() end,        desc = "Flash Treesitter" },
+      { "r",     mode = "o",               function() require("flash").remote() end,            desc = "Remote Flash" },
+      { "R",     mode = { "o", "x" },      function() require("flash").treesitter_search() end, desc = "Treesitter Search" },
+      { "<c-s>", mode = { "c" },           function() require("flash").toggle() end,            desc = "Toggle Flash Search" },
     },
   },
   {
@@ -180,8 +179,25 @@ local plugins = {
   },
   {
     lazy = false, -- 后续优化成判断启动
-    "christoomey/vim-tmux-navigator"
-  }
+    "christoomey/vim-tmux-navigator",
+  },
+  {
+    "robitx/gp.nvim",
+    config = function()
+      local config = {
+        openai_api_key = os.getenv "OPENAI_API_KEY",
+      }
+      require("gp").setup(config)
+    end,
+    lazy = false,
+  },
+  {
+    "nvim-telescope/telescope-frecency.nvim",
+    config = function()
+      require("telescope").load_extension "frecency"
+    end,
+  },
+
   -- To make a plugin not be loaded
   -- {
   --   "NvChad/nvim-colorizer.lua",
