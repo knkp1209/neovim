@@ -2,17 +2,29 @@ local on_attach = require("plugins.configs.lspconfig").on_attach
 local capabilities = require("plugins.configs.lspconfig").capabilities
 
 local lspconfig = require "lspconfig"
-local configs = require 'lspconfig.configs'
+local configs = require "lspconfig.configs"
 
 -- if you just want default config for the servers then put them in a table
-local servers = { "html", "cssls", "tsserver", "clangd", "intelephense", "phpactor", "gopls"}
+local servers = {
+  "html",
+  "cssls",
+  "tsserver",
+  -- "clangd",
+  "intelephense",
+  "phpactor",
+  "gopls",
+  "jedi_language_server",
+  "volar",
+  "vuels",
+  "bufls",
+}
 
 local current_directory = vim.fn.getcwd()
 local golangcilspconfigfile = current_directory .. "/.golangci.yaml"
 
 -- Function to check if a file exists
 local function file_exists(file)
-    return vim.fn.filereadable(file) == 1
+  return vim.fn.filereadable(file) == 1
 end
 
 if file_exists(golangcilspconfigfile) then
@@ -26,16 +38,16 @@ configs.golangcilsp = {
     cmd = { "golangci-lint-langserver" },
     filetypes = { "go" },
     root_dir = lspconfig.util.root_pattern("go.mod", ".git"),
-		init_options = {
-			command = {
-				"golangci-lint",
-				"run",
-				"--config=" .. golangcilspconfigfile,
-				"--fast",
-				"--out-format",
-				"json",
-			},
-		},
+    init_options = {
+      command = {
+        "golangci-lint",
+        "run",
+        "--config=" .. golangcilspconfigfile,
+        "--fast",
+        "--out-format",
+        "json",
+      },
+    },
     on_attach = on_attach,
   },
 }
@@ -46,7 +58,6 @@ for _, lsp in ipairs(servers) do
     capabilities = capabilities,
   }
 end
-
 
 --
 -- lspconfig.pyright.setup { blabla}

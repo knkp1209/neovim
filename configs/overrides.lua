@@ -17,6 +17,16 @@ M.treesitter = {
     "gomod",
     "gosum",
     "gowork",
+    "comment",
+    "jsdoc",
+    "fish",
+    "json",
+    "yaml",
+    "scss",
+    "vue",
+    "svelte",
+    "python",
+    "proto",
   },
   indent = {
     enable = true,
@@ -40,8 +50,8 @@ M.mason = {
     "prettier",
 
     -- c/cpp stuff
-    "clangd",
-    "clang-format",
+    -- "clangd",
+    -- "clang-format",
 
     -- php
     "intelephense",
@@ -51,6 +61,17 @@ M.mason = {
     -- go
     "gopls",
     "goimports",
+
+    -- python
+    "jedi_language_server",
+
+    -- vue
+    -- "vue-language-server",
+    "vuels",
+    "volar",
+
+    -- proto
+    "bufls",
   },
 }
 
@@ -79,6 +100,5 @@ M.telescope = {
     },
   },
 }
-
 
 return M
