@@ -197,7 +197,65 @@ local plugins = {
       require("telescope").load_extension "frecency"
     end,
   },
-
+  {
+    "akinsho/bufferline.nvim",
+    dependencies = {
+      "nvim-tree/nvim-tree.lua",
+      "nvim-tree/nvim-web-devicons",
+    },
+    event = "VeryLazy",
+    config = function()
+      require("bufferline").setup {
+        options = {
+          always_show_bufferline = false,
+          show_buffer_close_icons = false,
+          show_close_icon = false,
+          offsets = {
+            {
+              filetype = "NvimTree",
+              text = function()
+                return vim.fn.fnamemodify(vim.fn.getcwd(), ":t")
+              end,
+              highlight = "Directory",
+              separator = true,
+            },
+          },
+          indicator = {
+            icon = "", -- this should be omitted if indicator style is not 'icon'
+            style = "icon",
+          },
+          -- max_name_length = 18,
+          -- max_prefix_length = 15, -- prefix used when a buffer is de-duplicated
+          -- truncate_names = true,  -- whether or not tab names should be truncated
+          -- tab_size = 18,
+          diagnostics = "nvim_lsp",
+          diagnostics_update_in_insert = false,
+          diagnostics_indicator = function(count, level, diagnostics_dict, context)
+            local s = " "
+            for e, n in pairs(diagnostics_dict) do
+              local sym = e == "error" and " " or (e == "warning" and " " or "i")
+              s = s .. n .. sym
+            end
+            return s
+          end,
+          -- diagnostics_indicator = diagnostics_indicator,
+        },
+        -- highlights = require("catppuccin.groups.integrations.bufferline").get(),
+      }
+    end,
+  },
+  {
+    "crusj/bookmarks.nvim",
+    keys = {
+      { "<tab><tab>", mode = { "n" } },
+    },
+    branch = "main",
+    dependencies = { "nvim-web-devicons" },
+    config = function()
+      require("bookmarks").setup()
+      require("telescope").load_extension "bookmarks"
+    end,
+  },
   -- To make a plugin not be loaded
   -- {
   --   "NvChad/nvim-colorizer.lua",

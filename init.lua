@@ -19,6 +19,9 @@ opt.cursorline = true
 opt.showcmd = true
 opt.wildmenu = true
 
+-- buffterline
+opt.termguicolors = true
+
 
 -- 自动删除行尾空格
 autocmd("BufWritePre", {

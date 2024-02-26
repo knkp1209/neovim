@@ -107,6 +107,34 @@ M.nvimtree = {
   },
 }
 
+
+-- 用 akinsho/bufferline 替换 nvchad.tabufline
+M.tabufline = {
+  plugin = false,
+}
+
+M.bufferline = {
+  n = {
+    -- cycle through buffers
+    ["<tab>"] = {
+      "<cmd>BufferLineCycleNext<cr>",
+      "Goto next buffer",
+    },
+
+    ["<S-tab>"] = {
+      "<cmd>BufferLineCyclePrev<cr>",
+      "Goto prev buffer",
+    },
+
+    -- close buffer + hide terminal buffer
+    ["<leader>x"] = {
+      "<cmd>BufferLineCyclePrev<cr><cmd>BufferLineCloseRight<cr>",
+      "Close current buffer",
+    },
+  },
+}
+
+
 M.dap = {
   plugin = true,
   n = {
