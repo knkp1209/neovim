@@ -107,7 +107,6 @@ M.nvimtree = {
   },
 }
 
-
 -- 用 akinsho/bufferline 替换 nvchad.tabufline
 M.tabufline = {
   plugin = false,
@@ -133,7 +132,6 @@ M.bufferline = {
     },
   },
 }
-
 
 M.dap = {
   plugin = true,
@@ -169,7 +167,6 @@ M.dap = {
 
     -- Telescope frecency
     ["<leader>ff"] = { "<cmd> Telescope frecency workspace=CWD <CR>", "Find files" },
-
   },
 }
 

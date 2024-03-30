@@ -27,6 +27,7 @@ M.treesitter = {
     "svelte",
     "python",
     "proto",
+    "sql",
   },
   indent = {
     enable = true,
@@ -61,14 +62,16 @@ M.mason = {
     -- go
     "gopls",
     "goimports",
+    "gofumpt",
+    "golangci-lint-langserver",
 
     -- python
     "jedi_language_server",
 
     -- vue
     -- "vue-language-server",
-    "vuels",
-    "volar",
+    "vetur-vls",
+    "vue-language-server",
 
     -- proto
     "bufls",
