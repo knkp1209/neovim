@@ -86,6 +86,9 @@ M.general = {
     -- ["<C-m>"] = { // <C-m> 代表回车键
     --   "<nop>",
     -- }
+    --
+    -- 配合 iterm 终端 分离 ctrl+i 和 tab 键
+    ["<esc>CI"] = { '<C-i>', opts = { noremap = true, silent = true } },
   },
   v = {
     [">"] = { ">gv", "indent" },
