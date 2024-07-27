@@ -89,6 +89,37 @@ M.general = {
     --
     -- 配合 iterm 终端 分离 ctrl+i 和 tab 键
     ["<esc>CI"] = { '<C-i>', opts = { noremap = true, silent = true } },
+
+    -- telescope file browser
+    ["<leader>fe"] = {
+      function()
+        require("telescope").extensions.file_browser.file_browser()
+      end,
+      "Telescope file browser",
+    },
+
+    -- telescope file browser
+    ["<leader>mm"] = {
+      function()
+        require("bookmarks").add_bookmarks()
+      end,
+      "添加标签",
+    },
+
+    ["<leader>md"] = {
+      function()
+        require("bookmarks.list").delete_on_virt()
+      end,
+      "删除标签",
+    },
+
+    ["<leader>ms"] = {
+      function()
+        require("bookmarks").toggle_bookmarks()
+      end,
+      "显示标签",
+    },
+
   },
   v = {
     [">"] = { ">gv", "indent" },
@@ -170,6 +201,147 @@ M.dap = {
 
     -- Telescope frecency
     ["<leader>ff"] = { "<cmd> Telescope frecency workspace=CWD <CR>", "Find files" },
+  },
+}
+
+M.lspconfig = {
+  -- plugin = true,
+
+  -- See `<cmd> :help vim.lsp.*` for documentation on any of the below functions
+
+  n = {
+    ["gD"] = {
+      function()
+        vim.lsp.buf.declaration()
+      end,
+      "LSP declaration",
+    },
+
+    ["gd"] = {
+      function()
+        -- vim.lsp.buf.definition()
+        require("telescope.builtin").lsp_definitions()
+      end,
+      "LSP definition",
+    },
+
+    ["K"] = {
+      function()
+        vim.lsp.buf.hover()
+      end,
+      "LSP hover",
+    },
+
+    ["gi"] = {
+      function()
+        -- vim.lsp.buf.implementation()
+        require("telescope.builtin").lsp_implementations()
+      end,
+      "LSP implementation",
+    },
+
+    ["<leader>ls"] = {
+      function()
+        vim.lsp.buf.signature_help()
+      end,
+      "LSP signature help",
+    },
+
+    ["<leader>D"] = {
+      function()
+        -- vim.lsp.buf.type_definition()
+        require("telescope.builtin").lsp_type_definitions()
+      end,
+      "LSP definition type",
+    },
+
+    ["<leader>ra"] = {
+      function()
+        require("nvchad.renamer").open()
+      end,
+      "LSP rename",
+    },
+
+    ["<leader>ca"] = {
+      function()
+        vim.lsp.buf.code_action()
+      end,
+      "LSP code action",
+    },
+
+    ["gs"] = {
+      function()
+        -- vim.lsp.buf.references()
+        require("telescope.builtin").lsp_document_symbols()
+      end,
+      "LSP references",
+    },
+
+    ["gr"] = {
+      function()
+        -- vim.lsp.buf.references()
+        require("telescope.builtin").lsp_references()
+      end,
+      "LSP references",
+    },
+
+    ["<leader>lf"] = {
+      function()
+        vim.diagnostic.open_float { border = "rounded" }
+      end,
+      "Floating diagnostic",
+    },
+
+    ["[d"] = {
+      function()
+        vim.diagnostic.goto_prev { float = { border = "rounded" } }
+      end,
+      "Goto prev",
+    },
+
+    ["]d"] = {
+      function()
+        vim.diagnostic.goto_next { float = { border = "rounded" } }
+      end,
+      "Goto next",
+    },
+    --
+    -- ["<leader>q"] = {
+    --   function()
+    --     require("telescope.builtin").diagnostics()
+    --   end,
+    --   "Telescope Diagnostic ",
+    -- },
+
+    ["<leader>wa"] = {
+      function()
+        vim.lsp.buf.add_workspace_folder()
+      end,
+      "Add workspace folder",
+    },
+
+    ["<leader>wr"] = {
+      function()
+        vim.lsp.buf.remove_workspace_folder()
+      end,
+      "Remove workspace folder",
+    },
+
+    ["<leader>wl"] = {
+      function()
+        print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
+      end,
+      "List workspace folders",
+    },
+  },
+
+  v = {
+    ["<leader>ca"] = {
+      function()
+        vim.lsp.buf.code_action()
+      end,
+      "LSP code action",
+    },
   },
 }
 

@@ -9,7 +9,7 @@ M.ui = {
   theme_toggle = { "nightfox", "one_light" },
 
   -- 透明
-  transparency = true,
+  transparency = false,
 
   hl_override = highlights.override,
   hl_add = highlights.add,

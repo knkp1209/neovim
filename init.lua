@@ -8,6 +8,9 @@
 local opt = vim.opt
 local autocmd = vim.api.nvim_create_autocmd
 
+-- 拼写检查
+opt.spell = true
+
 opt.foldmethod = "expr"
 opt.foldexpr = "nvim_treesitter#foldexpr()"
 opt.foldenable = false
