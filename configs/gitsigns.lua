@@ -1,16 +1,16 @@
 return {
-  signs = {
-    add = { hl = "GitSignsAdd", text = "█", numhl = "GitSignsAdd" },
-    change = { hl = "GitSignsChange", text = "█", numhl = "GitSignsChange"},
-    delete = { hl = "GitSignsDelete", text = "▶", numhl = "GitSignsDelete"},
-    topdelete = { hl = "GitSignsDelete", text = "▶", numhl = "GitSignsDelete"},
-    changedelete = { hl = "GitSignsChange", text = "█", numhl = "GitSignsChange"},
-    -- add = { hl = "GitSignsAdd", text = "▍", numhl = "GitSignsAddNr", linehl = "GitSignsAddLn" },
-    -- change = { hl = "GitSignsChange", text = "▍", numhl = "GitSignsChangeNr", linehl = "GitSignsChangeLn" },
-    -- delete = { hl = "GitSignsDelete", text = "_", numhl = "GitSignsDeleteNr", linehl = "GitSignsDeleteLn" },
-    -- topdelete = { hl = "GitSignsDelete", text = "‾", numhl = "GitSignsDeleteNr", linehl = "GitSignsDeleteLn" },
-    -- changedelete = { hl = "GitSignsChange", text = "~", numhl = "GitSignsChangeNr", linehl = "GitSignsChangeLn" },
-  },
+  -- signs = {
+  --   add = { hl = "GitSignsAdd", text = "█", numhl = "GitSignsAdd" },
+  --   change = { hl = "GitSignsChange", text = "█", numhl = "GitSignsChange"},
+  --   delete = { hl = "GitSignsDelete", text = "▶", numhl = "GitSignsDelete"},
+  --   topdelete = { hl = "GitSignsDelete", text = "▶", numhl = "GitSignsDelete"},
+  --   changedelete = { hl = "GitSignsChange", text = "█", numhl = "GitSignsChange"},
+  --   -- add = { hl = "GitSignsAdd", text = "▍", numhl = "GitSignsAddNr", linehl = "GitSignsAddLn" },
+  --   -- change = { hl = "GitSignsChange", text = "▍", numhl = "GitSignsChangeNr", linehl = "GitSignsChangeLn" },
+  --   -- delete = { hl = "GitSignsDelete", text = "_", numhl = "GitSignsDeleteNr", linehl = "GitSignsDeleteLn" },
+  --   -- topdelete = { hl = "GitSignsDelete", text = "‾", numhl = "GitSignsDeleteNr", linehl = "GitSignsDeleteLn" },
+  --   -- changedelete = { hl = "GitSignsChange", text = "~", numhl = "GitSignsChangeNr", linehl = "GitSignsChangeLn" },
+  -- },
   signcolumn = true, -- Toggle with `:Gitsigns toggle_signs`
   numhl = true, -- Toggle with `:Gitsigns toggle_numhl`
   -- linehl = true, -- Toggle with `:Gitsigns toggle_linehl`
@@ -41,8 +41,5 @@ return {
     relative = "cursor",
     row = 0,
     col = 1,
-  },
-  yadm = {
-    enable = false,
   },
 }

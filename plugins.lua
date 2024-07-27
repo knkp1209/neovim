@@ -166,9 +166,15 @@ local plugins = {
     config = function()
       vim.api.nvim_create_user_command("ShowGitBlame", require("nvim-git").show_blame, {})
       vim.api.nvim_create_user_command("HideGitBlame", require("nvim-git").hide_blame, {})
-      vim.keymap.set("n", "<Leader>gb", "<Cmd>ShowLineAuthors<CR>", { silent = true, noremap = true })
-      -- vim.keymap.set("n", "<Leader>gbc", "<Cmd>HideLineAuthors<CR>", { silent = true, noremap = true })
     end,
+    lazy = false,
+  },
+  {
+    "knkp1209/nvim-ls",
+    --   dependencies = { "benfowler/telescope-luasnip.nvim" },
+    --   config = function()
+    --     vim.api.nvim_create_user_command("Ll", require("telescope").extensions.my_extension.hello_telescope, {})
+    --   end,
     lazy = false,
   },
   {
@@ -259,6 +265,49 @@ local plugins = {
       require("telescope").load_extension "bookmarks"
     end,
   },
+  {
+    "BYT0723/goctl.nvim",
+    dependencies = { "MunifTanjim/nui.nvim" },
+    config = function()
+      require("goctl").setup()
+    end,
+    lazy = false,
+  },
+  {
+    "nvim-telescope/telescope-file-browser.nvim",
+    dependencies = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" },
+  },
+  {
+    "luozhiya/fittencode.nvim",
+    config = function()
+      require("fittencode").setup()
+    end,
+    lazy = false,
+  },
+  {
+    "ray-x/go.nvim",
+    dependencies = { -- optional packages
+      "ray-x/guihua.lua",
+      "neovim/nvim-lspconfig",
+      "nvim-treesitter/nvim-treesitter",
+    },
+    config = function()
+      require("go").setup()
+    end,
+    event = { "CmdlineEnter" },
+    ft = { "go", "gomod" },
+    build = ':lua require("go.install").update_all_sync()', -- if you need to install/update all binaries
+  },
+
+  -- {
+  --   "junegunn/fzf",
+  --   lazy = false,
+  -- },
+  -- {
+  --   "liuchengxu/vim-clap",
+  --   lazy = false,
+  -- },
+
   -- To make a plugin not be loaded
   -- {
   --   "NvChad/nvim-colorizer.lua",

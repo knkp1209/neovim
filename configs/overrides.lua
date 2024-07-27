@@ -66,11 +66,11 @@ M.mason = {
     "golangci-lint-langserver",
 
     -- python
-    "jedi_language_server",
+    "jedi-language-server",
 
     -- vue
     -- "vue-language-server",
-    "vetur-vls",
+    -- "vetur-vls",
     "vue-language-server",
 
     -- proto
