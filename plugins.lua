@@ -280,7 +280,13 @@ local plugins = {
   {
     "luozhiya/fittencode.nvim",
     config = function()
-      require("fittencode").setup()
+      require("fittencode").setup({
+        keymaps = {
+          inline = {
+            ['hh'] = 'accept_all_suggestions',
+          },
+        },
+      })
     end,
     lazy = false,
   },
